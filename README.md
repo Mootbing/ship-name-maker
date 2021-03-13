@@ -1,6 +1,6 @@
 # Ship Name Maker
 
-Make ship names for you and your dependency(or dependencies if youre a player ;) )
+Make ship names for you and your dependency :). (sadly I don't have a gf to test this program on, so it may be bugged)
 
 # Examples
 
@@ -14,12 +14,21 @@ Felipe & Orlando
 
 ## Terminal format
 
+For brief viewing and gossiping at school, but you should save if you would like to revisit the ship
+
 ![terminal format image](https://user-images.githubusercontent.com/50122069/111045005-c50dd900-8419-11eb-880d-a6840613ecb8.png)
 
 ## Saved format
 
+It is the same as terminal format, but now you can print it out and hang it on the wall!
+
 ![saved format image](https://user-images.githubusercontent.com/50122069/111045030-e53d9800-8419-11eb-9f59-bcd3a36a31b0.png)
 
+## API format
+
+Returns a dictionairy with the keys "Full Names" and "Mixture Names"
+
+![API format image](https://user-images.githubusercontent.com/50122069/111050903-5f235080-841d-11eb-9773-af5c00fb2165.png)
 
 # How to run
 
@@ -39,7 +48,7 @@ Felipe & Orlando
 - Requests (for bs4)
 - Re (for regular expression)
 - [This Website](http://www.syllablecount.com/syllables/) (for syllable splitting)
-- [Lovecalculator.com](Lovecalculator.com) (for the love calculator scraping part)
+- [Lovecalculator.com](https://www.lovecalculator.com/) (for the love calculator scraping part)
 
 # How it works
 

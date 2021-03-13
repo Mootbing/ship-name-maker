@@ -155,7 +155,7 @@ if __name__ == "__main__":
 
     P2Name = re.sub("[\W_]+", "", P2Name)
 
-    if P1Name == "" and P2Name == "":
+    if P1Name == "" or P2Name == "":
         raise SystemExit("\nCleb is being a bed boi\n")
 
     print(f"\n-======Ship Names With {P1Name.capitalize()} & {P2Name.capitalize()}======-")

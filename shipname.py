@@ -119,7 +119,7 @@ def Tinder(Name1, Name2): #stupid love calculator thing
     for character in Name2:
         Total2 += ord(character)
     
-    LoveRate = int(round((Total1/len(Name1))/(Total2/len(Name2)), 2) * 100)
+    LoveRate = str(int(round((Total1/len(Name1))/(Total2/len(Name2)), 2) * 100))
 
     return str(LoveRate) + "%"
 

@@ -22,7 +22,6 @@ Felipe & Orlando
 
 *Note: shipname.py uses lovecalculator.py, so if you want both shipnames and love calculations, you only need to run shipname.py*
 
-**Api is not perfect and is a WIP, any suggestions are welcome**
 **The api may not be 100% percent accurate, but then again, love can't be calculated in numbers...**
 
 # Dependencies
@@ -31,6 +30,7 @@ Felipe & Orlando
 - Requests (for bs4)
 - Re (for regular expression)
 - [This Website](http://www.syllablecount.com/syllables/) (for syllable splitting)
+- [Lovecalculator.com](Lovecalculator.com) (for the love calculator scraping part)
 
 # How it works
 

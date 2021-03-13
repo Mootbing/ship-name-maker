@@ -89,22 +89,7 @@ def ShipNamesToo(Name, Syllabuls):
 
     return Ships
 
-def StringProcess(NameSplit1, NameSplit2):
-
-    BeforeString = f'''Mixture Names: \n
-{str(ShipOneXY(NameSplit1, NameSplit2))}
-{str(ShipOneXY(NameSplit2, NameSplit1))}'''
-
-    #for i in range(1, len(NameSplit1) if len(NameSplit1) > len(NameSplit2) else len(NameSplit2)):
-    #    BeforeString += f'''
-#{str(i + 1)} Syllabuls: \n
-#{str(ShipOneXY(NameSplit1, NameSplit2))}
-#{str(ShipOneXY(NameSplit2, NameSplit1))}
-#'''
-
-    return BeforeString
-
-def ReturnArrayOfShips(ShipString1, ShipString2):
+def ReturnArrayOfShips(ShipString1, ShipString2, IsApi = False):
 
     Syllabul1 = ShipString1.split("-")
 
@@ -112,13 +97,24 @@ def ReturnArrayOfShips(ShipString1, ShipString2):
     
     #also have to add the cases where its the full name for the first one and then parts of the 2nd
 
-    BeforeString = StringProcess(Syllabul1, Syllabul2)
+    if not IsApi:
 
-    ToPrint = f'''
+        BeforeString = f'''Mixture Names: \n
+{str(ShipOneXY(Syllabul1, Syllabul2))}
+{str(ShipOneXY(Syllabul2, Syllabul1))}'''
+
+        ToPrint = f'''
 {BeforeString}
 \nFull Names: \n
 {str(ShipNamesToo(ShipString1, Syllabul2))}
 {str(ShipNamesToo(ShipString2, Syllabul1))}'''
+
+    else:
+        
+        ToPrint = {
+            "Mixture Names":[ShipOneXY(Syllabul1, Syllabul2), ShipOneXY(Syllabul2, Syllabul1)],
+            "Full Names":[ShipNamesToo(ShipString1, Syllabul2), ShipNamesToo(ShipString2, Syllabul1)]
+        }
 
     return ToPrint
 
@@ -144,8 +140,8 @@ def ShipOneXY(Syllabul1, Syllabul2):
     
     return Ships
 
-def ReturnFinishedArrayOfNames(Name1, Name2): #used to call from other files into this api to get lovers
-    return ReturnArrayOfShips(GetShipName(Name1), GetShipName(Name2))
+def ReturnFinishedNamesInDict(Name1, Name2): #used to call from other files into this api to get lovers
+    return ReturnArrayOfShips(GetShipName(Name1), GetShipName(Name2), True)
 
 if __name__ == "__main__":
 

@@ -59,4 +59,4 @@ The algorithem is quite simple.
 3. Do all combinations with both
 4. Return the data in a nicely formatted array :)
 
-Extra thanks to @wiisportsresort for helping run some testcases
+Extra thanks to [@wiisportsresort](https://github.com/wiisportsresort) for helping run some testcases

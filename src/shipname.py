@@ -158,6 +158,10 @@ if __name__ == "__main__":
     if P1Name == "" or P2Name == "":
         raise SystemExit("\nCleb is being a bed boi\n")
 
+    P1Name = P1Name[:100]
+
+    P2Name = P2Name[:100]
+
     print(f"\n-======Ship Names With {P1Name.capitalize()} & {P2Name.capitalize()}======-")
 
     print(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)))

@@ -58,3 +58,5 @@ The algorithem is quite simple.
 2. Split them into syllables using an online "api" (this program used web-scraping to get the data off the site)
 3. Do all combinations with both
 4. Return the data in a nicely formatted array :)
+
+Extra thanks to @wiisportsresort for helping run some testcases

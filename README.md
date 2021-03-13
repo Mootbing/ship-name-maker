@@ -12,6 +12,13 @@ Felipe & Orlando
 
 ['Feor', 'Felan', 'Fedo', 'Lior', 'Lilan', 'Lido', 'Peor', 'Pelan', 'Pedo', 'Orfe', 'Orli', 'Orpe', 'Lanfe', 'Lanli', 'Lanpe', 'Dofe', 'Doli', 'Dope']
 
+Terminal format
+![terminal format image](https://user-images.githubusercontent.com/50122069/111045005-c50dd900-8419-11eb-880d-a6840613ecb8.png)
+
+Saved format
+![saved format image](https://user-images.githubusercontent.com/50122069/111045030-e53d9800-8419-11eb-9f59-bcd3a36a31b0.png)
+
+
 # How to run
 
 1. Clone this repository

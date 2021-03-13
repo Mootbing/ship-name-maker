@@ -2,6 +2,16 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
+def DealWithOneCharacterNames(Name):
+
+    VOWEL_REGEX = re.compile(r'[aeiou]') # code stolen https://stackoverflow.com/questions/46337907/extract-the-index-of-the-first-vowel-in-a-string/46338545#46338545
+    Index = VOWEL_REGEX.search(Name).start()
+    if not Index:
+        return Name
+    Character = Name.lower()[Index]
+
+    return Name.lower().split(Character)[0] + Character
+
 def GetShipName(Name): #webscrape shit
 
     try:
@@ -22,16 +32,8 @@ def GetShipName(Name): #webscrape shit
     
     except:
         
-        if "a" in Name.lower():
-            return Name.lower().split("a")[0] + "a"
-        elif "e" in Name.lower():
-            return Name.lower().split("e")[0] + "e"
-        elif "i" in Name.lower():
-            return Name.lower().split("i")[0] + "i"
-        elif "o" in Name.lower():
-            return Name.lower().split("o")[0] + "o"
-        elif "u" in Name.lower():
-            return Name.lower().split("u")[0]+ "u"
+        return DealWithOneCharacterNames(Name)
+
 
 def StartsWithAEIOU(AString):
 

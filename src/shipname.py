@@ -84,21 +84,24 @@ def ShipNamesToo(Name, Syllabuls):
     Ships = []
 
     for c in Syllabuls:
-        Ships.append((Name + c).capitalize())
-        Ships.append((c + Name).capitalize())
+        Ships.append((Name + c).capitalize().replace(" ", ""))
+        Ships.append((c + Name).capitalize().replace(" ", ""))
 
     return Ships
 
 def StringProcess(NameSplit1, NameSplit2):
 
-    BeforeString = ""
-
-    for i in range(1, len(NameSplit1) if len(NameSplit1) > len(NameSplit2) else len(NameSplit2)):
-        BeforeString += f'''
-{str(i + 1)} Syllabuls: \n
+    BeforeString = f'''
+Mixture Names: \n
 {str(ShipOneXY(NameSplit1, NameSplit2))}
 {str(ShipOneXY(NameSplit2, NameSplit1))}
-'''
+
+    #for i in range(1, len(NameSplit1) if len(NameSplit1) > len(NameSplit2) else len(NameSplit2)):
+    #    BeforeString += f'''
+#{str(i + 1)} Syllabuls: \n
+#{str(ShipOneXY(NameSplit1, NameSplit2))}
+#{str(ShipOneXY(NameSplit2, NameSplit1))}
+#'''
 
     return BeforeString
 
@@ -138,7 +141,7 @@ def ShipOneXY(Syllabul1, Syllabul2):
             else:
                 p2syllabul = Syllabul2[y]  
 
-            Ships.append(str(p1syllabul + p2syllabul).lower().capitalize())
+            Ships.append(str(p1syllabul + p2syllabul).lower().capitalize().replace(" ", ""))
     
     return Ships
 

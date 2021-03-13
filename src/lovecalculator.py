@@ -1,26 +1,28 @@
-def Tinder(Name1, Name2): #stupid love calculator thing: sourced from: https://www.youtube.com/watch?v=oFsLVG7EAZ4
+from bs4 import BeautifulSoup
+import requests
+import re
 
-    LoveArray = Name1.lower() + "loves" + Name2.lower()
-    DictionairyOfLove = {}
-    FinalArray = []
-    Score = 0
+def Tinder(Name1, Name2): 
 
-    for character in LoveArray:
-        if character not in DictionairyOfLove:
-            DictionairyOfLove[character] = LoveArray.count(character)
+    try:
 
-    for key in DictionairyOfLove:
-        FinalArray.append(DictionairyOfLove[key])
+        Page = requests.get(f"https://www.lovecalculator.com/love.php?name1={Name1}&name2={Name2}") #request the site
 
-    while (len(FinalArray) > 2):
-        for i in range((len(FinalArray) - 1) // 2):
-            FinalArray[i] = FinalArray[i] + FinalArray.pop(len(FinalArray) - 1 - i)
+        Soup = BeautifulSoup(Page.content, 'html.parser') #let bs4 do the work
 
-    FinalScore = str(FinalArray[0]) + str(FinalArray[1])
+        Chunk = str(Soup.find(class_="result__score")) #find the id where it is located
 
-    return FinalScore + "%"
+        Final = re.sub("<.*>", "", Chunk).strip()#find score
 
+        Chunk2 = str(Soup.find(class_="result-text"))
+
+        Description = re.sub("<.*>", "", Chunk2).strip()
+    
+        return Final, " ".join(Description.split()) #rid wierd spacing
+
+    except:
+        raise SystemExit("Error occured while connecting to lovecalculator.com")
 
 if __name__ == "__main__":
-    #print(Tinder("mary","james"))
-    print(Tinder(input("Name1:"), input("Name2:")))
+    print(Tinder("mary","stephen"))
+    #print(Tinder(input("Name1:"), input("Name2:")))

@@ -156,7 +156,7 @@ if __name__ == "__main__":
 
     print(f"\n-======Love Percentage - {P1Name.capitalize()} & {P2Name.capitalize()}======-")
 
-    print(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)}<<<\n")
+    print(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)[0]}<<<\n\n{lovecalculator.Tinder(P1Name, P2Name)[1]}\nProvided by lovecalculator.com")
 
     print("The api may not be perfect")#
 #'''

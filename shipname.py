@@ -2,15 +2,31 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
+def IsNotSameBeforeAndAfter(NameArray, Index):
+
+    precondition = tuple(True, True)
+
+    if Index + 1 < len(NameArray):
+        precondition[0] = NameArray[Index] != NameArray[Index + 1]
+    if Index - 1 > 0:
+        precondition[1] = NameArray[Index] != NameArray[Index - 1]
+    
+    return precondition[0] and precondition[1]
+
 def DealWithOneCharacterNames(Name):
 
     VOWEL_REGEX = re.compile(r'[aeiou]') # code stolen https://stackoverflow.com/questions/46337907/extract-the-index-of-the-first-vowel-in-a-string/46338545#46338545
-    Index = VOWEL_REGEX.search(Name).start()
+    Index = VOWEL_REGEX.search(Name[1:]).start()
     if not Index:
         return Name
     Character = Name.lower()[Index]
 
-    return Name.lower().split(Character)[0] + Character
+    print(Character)
+
+    if IsNotSameBeforeAndAfter(Name.lower(), Index):
+        return Name.lower().split(Character)[0] + Character
+    else:
+        return DealWithOneCharacterNames(Name.lower()[Index:])
 
 def GetShipName(Name): #webscrape shit
 
@@ -44,13 +60,9 @@ def StartsWithAEIOU(AString):
 
     return False
 
-def ReturnArrayOfShips(ShipString1, ShipString2):
+def ShipOneXY(Syllabul1, Syllabul2):
 
     Ships = []
-
-    Syllabul1 = ShipString1.split("-")
-
-    Syllabul2 = ShipString2.split("-")
 
     for x in range(len(Syllabul1)):
         for y in range(len(Syllabul2)):
@@ -66,8 +78,21 @@ def ReturnArrayOfShips(ShipString1, ShipString2):
                 p2syllabul = Syllabul2[y]  
 
             Ships.append(str(p1syllabul + p2syllabul).lower().capitalize())
-
+    
     return Ships
+
+def ReturnArrayOfShips(ShipString1, ShipString2):
+
+    Syllabul1 = ShipString1.split("-")
+
+    Syllabul2 = ShipString2.split("-")
+
+    Ship1 = ShipOneXY(Syllabul1, Syllabul2)
+    Ship2 = ShipOneXY(Syllabul2, Syllabul1)
+    
+    #also have to add the cases where it's not 2 syllabuls and you're using ther person's name
+
+    return Ship1 + Ship2
         
 
 P1Name = input("Someone: ")

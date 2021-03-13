@@ -170,11 +170,11 @@ if __name__ == "__main__":
                 f.write(f"Shipping {P1Name.capitalize()} With {P2Name.capitalize()}\n")
                 f.write(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)) + "\n")
                 f.write(f"\nLove Percentage of {P1Name.capitalize()} and {P2Name.capitalize()} \n")
-                f.write(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)[0]}<<<\n\n{lovecalculator.Tinder(P1Name, P2Name)[1]}\nn-===Provided by lovecalculator.com===-")
+                f.write(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)[0]}<<<\n\n{lovecalculator.Tinder(P1Name, P2Name)[1]}\n-===Provided by lovecalculator.com===-")
                 
-            print(f"\n-===Sucessfully saved file to ./saved/Ship{P1Name.capitalize()}With{P2Name.capitalize()}.txt!===-")
+            print(f"\n-===Sucessfully saved file to ./saved/Ship{P1Name.capitalize()}With{P2Name.capitalize()}.txt!===-\n")
 
         except:
-            raise SystemExit(f"-===Failed saving file to ./saved/Ship{P1Name.capitalize()}With{P2Name.capitalize()}.txt===-")
+            raise SystemExit(f"-===Failed saving file to ./saved/Ship{P1Name.capitalize()}With{P2Name.capitalize()}.txt===-\n")
 
 #'''

@@ -4,8 +4,6 @@ Make ship names for you and your dependency(or dependencies if youre a player ;)
 
 # Examples
 
-Eg:
-
 Stacy & Lester
 
 ['Stansta', 'Leysta']

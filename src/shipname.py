@@ -151,6 +151,10 @@ if __name__ == "__main__":
 
     P2Name = input(f"Person you\'d like to ship with {P1Name}: ")
 
+    P1Name = re.sub("[\W_]+", "", P1Name)
+
+    P2Name = re.sub("[\W_]+", "", P2Name)
+
     print(f"\n-======Ship Names With {P1Name.capitalize()} & {P2Name.capitalize()}======-")
 
     print(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)))

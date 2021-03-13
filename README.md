@@ -1,6 +1,6 @@
 # Ship Name Maker
 
-Make ship names for you and your dependency(or dependencies if youre a player ;) )
+Make ship names for you and your dependency :). (sadly I don't have a gf to test this program on, so it may be bugged)
 
 # Examples
 

@@ -40,6 +40,3 @@ The algorithem is quite simple.
 2. Split them into syllables using an online "api" (this program used web-scraping to get the data off the site)
 3. Do all combinations with both
 4. Return the data in a nicely formatted array :)
-
-Pro tip: Additional scripts are (or will be) included that can turn this innocent shipper into an iMessage spammer
-

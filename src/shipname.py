@@ -144,6 +144,9 @@ def ShipOneXY(Syllabul1, Syllabul2):
     
     return Ships
 
+def ReturnFinishedArrayOfNames(Name1, Name2): #used to call from other files into this api to get lovers
+    return ReturnArrayOfShips(GetShipName(Name1), GetShipName(Name2))
+
 if __name__ == "__main__":
 
     print("\n-======Ship Name Generator=====-\n")

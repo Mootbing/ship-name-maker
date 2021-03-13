@@ -6,11 +6,31 @@ Make ship names for you and your dependency(or dependencies if youre a player ;)
 
 Stacy & Lester
 
-['Stansta', 'Leysta']
+['Stales', 'Stater', 'Cyles', 'Cyter', 'Lessta', 'Lescy', 'Tersta', 'Tercy']
 
 Felipe & Orlando
 
-['Feor', 'Felan', 'Fedo', 'Lior', 'Lilan', 'Lido', 'Peor', 'Pelan', 'Pedo']
+['Feor', 'Felan', 'Fedo', 'Lior', 'Lilan', 'Lido', 'Peor', 'Pelan', 'Pedo', 'Orfe', 'Orli', 'Orpe', 'Lanfe', 'Lanli', 'Lanpe', 'Dofe', 'Doli', 'Dope']
+
+# How to run
+
+1. Clone this repository
+2. Cd into src
+3. Pip3 install the dependencies listed below
+4. python3 shipname.py
+5. Have fun!
+
+*Note: shipname.py uses lovecalculator.py, so if you want both shipnames and love calculations, you only need to run shipname.py*
+
+**Api is not perfect and is a WIP, any suggestions are welcome**
+**The api may not be 100% percent accurate, but then again, love can't be calculated in numbers...**
+
+# Dependencies
+
+- Beautiful Soup 4 (Webscrape)
+- Requests (for bs4)
+- Re (for regular expression)
+- [This Website](http://www.syllablecount.com/syllables/) (for syllable splitting)
 
 # How it works
 
@@ -23,9 +43,3 @@ The algorithem is quite simple.
 
 Pro tip: Additional scripts are (or will be) included that can turn this innocent shipper into an iMessage spammer
 
-# Dependencies
-
-- Beautiful Soup 4 (Webscrape)
-- Requests (for bs4)
-- Re (for regular expression)
-- [This Website](http://www.syllablecount.com/syllables/) (for syllable splitting)

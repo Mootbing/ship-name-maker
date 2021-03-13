@@ -12,15 +12,15 @@ def Tinder(Name1, Name2): #stupid love calculator thing: sourced from: https://w
     for key in DictionairyOfLove:
         FinalArray.append(DictionairyOfLove[key])
 
-    while len(FinalArray) > 1:
-        Score += FinalArray.pop(0)
+    while (len(FinalArray) > 2):
+        for i in range((len(FinalArray) - 1) // 2):
+            FinalArray[i] = FinalArray[i] + FinalArray.pop(len(FinalArray) - 1 - i)
 
-    DigitOne = 0
+    FinalScore = str(FinalArray[0]) + str(FinalArray[1])
 
-    for char in str(Score):
-        DigitOne += int(char)
+    return FinalScore + "%" if len(FinalScore) < 3 else "100%"
 
-    return str(DigitOne) + str(FinalArray[0]) + "%"
 
 if __name__ == "__main__":
-    print(Tinder(input("Name1:"), input("Name2:")))
+    print(Tinder("mary","james"))
+    #print(Tinder(input("Name1:"), input("Name2:")))

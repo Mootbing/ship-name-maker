@@ -48,7 +48,7 @@ Returns a dictionairy with the keys "Full Names" and "Mixture Names"
 - Requests (for bs4)
 - Re (for regular expression)
 - [This Website](http://www.syllablecount.com/syllables/) (for syllable splitting)
-- [Lovecalculator.com](http://www.lovecalculator.com) (for the love calculator scraping part)
+- [Lovecalculator.com](https://www.lovecalculator.com/) (for the love calculator scraping part)
 
 # How it works
 

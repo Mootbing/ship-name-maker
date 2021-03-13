@@ -74,6 +74,8 @@ P1Name = input("Someone: ")
 
 P2Name = input(f"Person you\'d like to ship with {P1Name}: ")
 
+print(f"\n -======Matches with {P1Name} and {P2Name}======-\n")
+
 print(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)))
 
 print("The api may not be perfect")

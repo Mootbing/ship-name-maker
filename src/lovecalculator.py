@@ -18,9 +18,9 @@ def Tinder(Name1, Name2): #stupid love calculator thing: sourced from: https://w
 
     FinalScore = str(FinalArray[0]) + str(FinalArray[1])
 
-    return FinalScore + "%" if len(FinalScore) < 3 else "100%"
+    return FinalScore + "%"
 
 
 if __name__ == "__main__":
-    print(Tinder("mary","james"))
-    #print(Tinder(input("Name1:"), input("Name2:")))
+    #print(Tinder("mary","james"))
+    print(Tinder(input("Name1:"), input("Name2:")))

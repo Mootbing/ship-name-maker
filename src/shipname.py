@@ -91,10 +91,9 @@ def ShipNamesToo(Name, Syllabuls):
 
 def StringProcess(NameSplit1, NameSplit2):
 
-    BeforeString = f'''
-Mixture Names: \n
+    BeforeString = f'''Mixture Names: \n
 {str(ShipOneXY(NameSplit1, NameSplit2))}
-{str(ShipOneXY(NameSplit2, NameSplit1))}
+{str(ShipOneXY(NameSplit2, NameSplit1))}'''
 
     #for i in range(1, len(NameSplit1) if len(NameSplit1) > len(NameSplit2) else len(NameSplit2)):
     #    BeforeString += f'''
@@ -159,7 +158,7 @@ if __name__ == "__main__":
 
     print(f"\n-======Love Percentage - {P1Name.capitalize()} & {P2Name.capitalize()}======-")
 
-    print(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)[0]}<<<\n\n{lovecalculator.Tinder(P1Name, P2Name)[1]}\nProvided by lovecalculator.com")
+    print(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)[0]}<<<\n\n{lovecalculator.Tinder(P1Name, P2Name)[1]}\n-===Provided by lovecalculator.com===-")
 
-    print("The api may not be perfect")#
+    print("\nNotice: The api may not be perfect\nAny bug/feature requests file an issue here https://github.com/Mootbing/ship-name-maker/issues\n")#
 #'''

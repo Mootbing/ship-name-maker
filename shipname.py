@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
+import lovecalculator #local package
+
 def IsNotSameBeforeAndAfter(NameArray, Index):
 
     precondition = tuple(True, True)
@@ -102,38 +104,31 @@ def ReturnArrayOfShips(ShipString1, ShipString2):
 
     Syllabul2 = ShipString2.split("-")
 
+    print(Syllabul1)
+    print(Syllabul2)
+
     Ship1 = ShipOneXY(Syllabul1, Syllabul2)
     Ship2 = ShipOneXY(Syllabul2, Syllabul1)
     
-    #also have to add the cases where it's not 2 syllabuls and you're using ther person's name
+    #also have to add the cases where its the full name for the first one and then parts of the 2nd
+
+    Ship3 = ShipOneXY(ShipString1, Syllabul2)
+    Ship4 = ShipOneXY(ShipString2, Syllabul1)
 
     return Ship1 + Ship2
-        
-def Tinder(Name1, Name2): #stupid love calculator thing
 
-    Total1 = 0
-    Total2 = 0
+if __name__ == "__main__":
 
-    for character in Name1:
-        Total1 += ord(character)
-    for character in Name2:
-        Total2 += ord(character)
-    
-    LoveRate = str(int(round((Total1/len(Name1))/(Total2/len(Name2)), 2) * 100))
+    P1Name = input("Someone: ")
 
-    return str(LoveRate) + "%"
+    P2Name = input(f"Person you\'d like to ship with {P1Name}: ")
 
+    print(f"\n-======Ship Names With {P1Name.capitalize()} & {P2Name.capitalize()}======-\n")
 
-P1Name = input("Someone: ")
+    print(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)))
 
-P2Name = input(f"Person you\'d like to ship with {P1Name}: ")
+    print(f"\n-======Love Percentage - {P1Name.capitalize()} & {P2Name.capitalize()}======-")
 
-print(f"\n-======Ship Names With {P1Name.capitalize()} & {P2Name.capitalize()}======-\n")
+    print(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)}<<<\n")
 
-print(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)))
-
-print(f"\n-======Love Percentage - {P1Name.capitalize()} & {P2Name.capitalize()}======-")
-
-print(f"\n>>>{Tinder(P1Name, P2Name)}<<<\n")
-
-print("The api may not be perfect")#'''
+    print("The api may not be perfect")#'''

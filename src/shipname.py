@@ -161,4 +161,20 @@ if __name__ == "__main__":
     print(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)[0]}<<<\n\n{lovecalculator.Tinder(P1Name, P2Name)[1]}\n-===Provided by lovecalculator.com===-")
 
     print("\nNotice: The api may not be perfect\nAny bug/feature requests file an issue here https://github.com/Mootbing/ship-name-maker/issues\n")#
+
+    Save = input("Save This Result Locally? (Y/N)\n>>>")
+
+    if(Save.strip().lower() == "y" or Save.strip().lower() == "yes"):
+        try:
+            with open(f"./saved/Ship{P1Name.capitalize()}With{P2Name.capitalize()}.txt", "w+") as f:
+                f.write(f"Shipping {P1Name.capitalize()} With {P2Name.capitalize()}\n")
+                f.write(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)) + "\n")
+                f.write(f"\nLove Percentage of {P1Name.capitalize()} and {P2Name.capitalize()} \n")
+                f.write(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)[0]}<<<\n\n{lovecalculator.Tinder(P1Name, P2Name)[1]}\nn-===Provided by lovecalculator.com===-")
+                
+            print(f"\n-===Sucessfully saved file to ./saved/Ship{P1Name.capitalize()}With{P2Name.capitalize()}.txt!===-")
+
+        except:
+            raise SystemExit(f"-===Failed saving file to ./saved/Ship{P1Name.capitalize()}With{P2Name.capitalize()}.txt===-")
+
 #'''

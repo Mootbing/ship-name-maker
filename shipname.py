@@ -13,20 +13,35 @@ def IsNotSameBeforeAndAfter(NameArray, Index):
     
     return precondition[0] and precondition[1]
 
-def DealWithOneCharacterNames(Name):
+def DealWithOneSyllabulNames(Name):
 
-    VOWEL_REGEX = re.compile(r'[aeiou]') # code stolen https://stackoverflow.com/questions/46337907/extract-the-index-of-the-first-vowel-in-a-string/46338545#46338545
-    Index = VOWEL_REGEX.search(Name[1:]).start()
-    if not Index:
-        return Name
-    Character = Name.lower()[Index]
+    for Vowel in ["a", "e", "i", "o", "u", "y"]:
+        if Vowel in Name:
+            break
 
-    print(Character)
+        if Vowel == "y":
+            return Name #no vowel
 
-    if IsNotSameBeforeAndAfter(Name.lower(), Index):
-        return Name.lower().split(Character)[0] + Character
-    else:
-        return DealWithOneCharacterNames(Name.lower()[Index:])
+    Counter = 0
+    NameIntoLists = list(Name)
+    FinalList = []
+
+    while True:
+
+        if not (len(NameIntoLists) > Counter):
+            FinalList.append("".join(NameIntoLists))
+            return FinalList
+        
+        if NameIntoLists[Counter].lower() in ["a", "e", "i", "o", "u", "y"]:
+            
+            SacredWord = (str("".join(NameIntoLists)))[:int(Counter + 1)]
+
+            FinalList.append(SacredWord)
+            NameIntoLists = list(("".join(NameIntoLists))[Counter + 1:])
+
+            Counter = 0
+
+        Counter += 1
 
 def GetShipName(Name): #webscrape shit
 
@@ -48,7 +63,7 @@ def GetShipName(Name): #webscrape shit
     
     except:
         
-        return DealWithOneCharacterNames(Name)
+        return ("-".join(DealWithOneSyllabulNames(Name))).strip("-")
 
 
 def StartsWithAEIOU(AString):
@@ -94,13 +109,31 @@ def ReturnArrayOfShips(ShipString1, ShipString2):
 
     return Ship1 + Ship2
         
+def Tinder(Name1, Name2): #stupid love calculator thing
+
+    Total1 = 0
+    Total2 = 0
+
+    for character in Name1:
+        Total1 += ord(character)
+    for character in Name2:
+        Total2 += ord(character)
+    
+    LoveRate = int(round((Total1/len(Name1))/(Total2/len(Name2)), 2) * 100)
+
+    return str(LoveRate) + "%"
+
 
 P1Name = input("Someone: ")
 
 P2Name = input(f"Person you\'d like to ship with {P1Name}: ")
 
-print(f"\n -======Matches with {P1Name} and {P2Name}======-\n")
+print(f"\n-======Ship Names With {P1Name.capitalize()} & {P2Name.capitalize()}======-\n")
 
 print(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)))
 
-print("The api may not be perfect")
+print(f"\n-======Love Percentage - {P1Name.capitalize()} & {P2Name.capitalize()}======-")
+
+print(f"\n>>>{Tinder(P1Name, P2Name)}<<<\n")
+
+print("The api may not be perfect")#'''

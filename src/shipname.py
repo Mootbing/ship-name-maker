@@ -77,6 +77,50 @@ def StartsWithAEIOU(AString):
 
     return False
 
+def ShipNamesToo(Name, Syllabuls):
+
+    Name = re.sub("-", "", Name)
+
+    Ships = []
+
+    for c in Syllabuls:
+        Ships.append((Name + c).capitalize())
+        Ships.append((c + Name).capitalize())
+
+    return Ships
+
+def StringProcess(NameSplit1, NameSplit2):
+
+    BeforeString = ""
+
+    for i in range(1, len(NameSplit1) if len(NameSplit1) > len(NameSplit2) else len(NameSplit2)):
+        BeforeString += f'''
+{str(i + 1)} Syllabuls: \n
+{str(ShipOneXY(NameSplit1, NameSplit2))}
+{str(ShipOneXY(NameSplit2, NameSplit1))}
+'''
+
+    return BeforeString
+
+def ReturnArrayOfShips(ShipString1, ShipString2):
+
+    Syllabul1 = ShipString1.split("-")
+
+    Syllabul2 = ShipString2.split("-")
+    
+    #also have to add the cases where its the full name for the first one and then parts of the 2nd
+
+    BeforeString = StringProcess(Syllabul1, Syllabul2)
+
+    ToPrint = f'''
+{BeforeString}
+\nFull Names: \n
+{str(ShipNamesToo(ShipString1, Syllabul2))}
+{str(ShipNamesToo(ShipString2, Syllabul1))}'''
+
+    return ToPrint
+
+
 def ShipOneXY(Syllabul1, Syllabul2):
 
     Ships = []
@@ -98,32 +142,15 @@ def ShipOneXY(Syllabul1, Syllabul2):
     
     return Ships
 
-def ReturnArrayOfShips(ShipString1, ShipString2):
-
-    Syllabul1 = ShipString1.split("-")
-
-    Syllabul2 = ShipString2.split("-")
-
-    print(Syllabul1)
-    print(Syllabul2)
-
-    Ship1 = ShipOneXY(Syllabul1, Syllabul2)
-    Ship2 = ShipOneXY(Syllabul2, Syllabul1)
-    
-    #also have to add the cases where its the full name for the first one and then parts of the 2nd
-
-    Ship3 = ShipOneXY(ShipString1, Syllabul2)
-    Ship4 = ShipOneXY(ShipString2, Syllabul1)
-
-    return Ship1 + Ship2
-
 if __name__ == "__main__":
+
+    print("\n-======Ship Name Generator=====-\n")
 
     P1Name = input("Someone: ")
 
     P2Name = input(f"Person you\'d like to ship with {P1Name}: ")
 
-    print(f"\n-======Ship Names With {P1Name.capitalize()} & {P2Name.capitalize()}======-\n")
+    print(f"\n-======Ship Names With {P1Name.capitalize()} & {P2Name.capitalize()}======-")
 
     print(ReturnArrayOfShips(GetShipName(P1Name), GetShipName(P2Name)))
 
@@ -131,4 +158,5 @@ if __name__ == "__main__":
 
     print(f"\n>>>{lovecalculator.Tinder(P1Name, P2Name)}<<<\n")
 
-    print("The api may not be perfect")#'''
+    print("The api may not be perfect")#
+#'''
